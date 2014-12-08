@@ -3,9 +3,10 @@ PointDensity.IJ
 ===============
 
 PointDensity.IJ is a software tool for analysis of immunogold labeled electron
-micrographs. Specifically, it is used to analyse gold labeling along membrane
-segments or other open linear paths. It is of course also possible to use the
-tool for other types of two-dimensional spatial point patterns.
+micrographs. Specifically, it is used to analyse gold labeling associated with 
+membrane-enclosed compartments or other closed segmented paths. It is of course
+also possible to use the tool for other types of two-dimensional spatial point 
+patterns.
 
 PointDensity.IJ is used in conjunction with its companion Python component,
 PointDensity.py.
