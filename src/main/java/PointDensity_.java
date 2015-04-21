@@ -26,10 +26,10 @@ import ij.measure.*;
 interface VersionPD {
     String title = "PointDensity";
     String author = "Max Larsson";
-    String version = "1.1.0";
-    String year = "2014";
-    String month = "November";
-    String day = "11";
+    String version = "1.1.1";
+    String year = "2015";
+    String month = "April";
+    String day = "20";
     String email = "max.larsson@liu.se";
     String homepage = "http://www.hu.liu.se/forskning/larsson-max/software";
 }
