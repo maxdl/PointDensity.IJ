@@ -5,7 +5,7 @@
 
     This ImageJ plugin is for use in conjunction with PointDensity.py.
     
-    Copyright 2001-2014 Max Larsson <max.larsson@liu.se>
+    Copyright 2001-2018 Max Larsson <max.larsson@liu.se>
 
     This software is released under the MIT license.
       
@@ -26,8 +26,8 @@ import ij.measure.*;
 interface VersionPD {
     String title = "PointDensity";
     String author = "Max Larsson";
-    String version = "1.1.1";
-    String year = "2015";
+    String version = "1.2.0";
+    String year = "2018";
     String month = "April";
     String day = "20";
     String email = "max.larsson@liu.se";
@@ -515,7 +515,7 @@ class ProfileDataPD implements OptionsPD {
 
 
     public boolean save(ImagePlus imp) {
-        int i;
+        int i, j;
         double pixelwidth;
         String s, unit;
         Polygon pol;
@@ -577,10 +577,10 @@ class ProfileDataPD implements OptionsPD {
                 outf.println("  " + IJ.d2s(pol.xpoints[i], 0) + ", "+ IJ.d2s(pol.ypoints[i], 0));
             }
             outf.println("END");
-            for (n = 0; n < this.overlay.size(); n++) {
-                if (this.overlay.get(n).getName().equals("hole")) {
+            for (j = 0; j < this.overlay.size(); j++) {
+                if (this.overlay.get(j).getName().equals("hole")) {
                     outf.println("HOLE");
-                    pol = this.overlay.get(n).getPolygon();
+                    pol = this.overlay.get(j).getPolygon();
                     for (i = 0; i < pol.npoints; i++)
                         outf.println("  " + IJ.d2s(pol.xpoints[i], 0) + ", "+ IJ.d2s(pol.ypoints[i], 0));
                     outf.println("END");
