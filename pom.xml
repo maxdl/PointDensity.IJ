@@ -8,17 +8,18 @@
     <parent>
         <groupId>org.scijava</groupId>
         <artifactId>pom-scijava</artifactId>
-        <version>2.9</version>
+        <version>14.0.0</version>
         <relativePath />
     </parent>
 
     
-	<groupId>com.mycompany</groupId>
+	<groupId>se.liu</groupId>
 	<artifactId>PointDensity_</artifactId>
 	<version>1.2.4</version>
 
 	<name>PointDensity</name>
-	<description>The PointDensity plugin</description>
+	<description>PointDensity ImageJ plugin</description>
+	<url>https://github.com/maxdl/PointDensity.IJ</url>
     <inceptionYear>2001</inceptionYear>
     <organization>
 		<name>Linköping University</name>
@@ -40,15 +41,42 @@
 			<organization>Linköping University</organization>
 			<organizationUrl>http://www.liu.se/</organizationUrl>
 			<roles>
-				<role>architect</role>
 				<role>developer</role>
 			</roles>
 			<timezone>+1</timezone>
 		</developer>
 	</developers>
-    
+
+	<contributors>
+		<contributor>
+			<name>None</name>
+		</contributor>
+	</contributors>    		
+	
+	<mailingLists>
+		<mailingList>
+			<name>None</name>
+		</mailingList>			
+	</mailingLists>
+
+	<scm>
+		<connection>scm:git:git://github.com/maxdl/PointDensity.IJ</connection>
+		<developerConnection>scm:git:git@github.com:maxdl/PointDensity.IJ</developerConnection>
+		<tag>HEAD</tag>
+		<url>https://github.com/maxdl/PointDensity.IJ</url>
+	</scm>
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/maxdl/PointDensity.IJ/issues</url>
+	</issueManagement>
+	<ciManagement>
+		<system>None</system>
+	</ciManagement>
+
     <properties>
         <imagej.app.directory>D:\ImageJ\</imagej.app.directory>
+		<license.licenseName>mit</license.licenseName>
+		<license.copyrightOwners>Max Larsson</license.copyrightOwners>
     </properties>
     
     <dependencies>
