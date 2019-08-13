@@ -73,8 +73,7 @@
 		<system>None</system>
 	</ciManagement>
 
-    <properties>
-        <imagej.app.directory>D:\ImageJ\</imagej.app.directory>
+    <properties>      
 		<license.licenseName>mit</license.licenseName>
 		<license.copyrightOwners>Max Larsson</license.copyrightOwners>
     </properties>
@@ -83,7 +82,6 @@
 		<dependency>
 			<groupId>net.imagej</groupId>
 			<artifactId>ij</artifactId>
-            <version>1.49e</version>            
 		</dependency>
 	</dependencies>
 
