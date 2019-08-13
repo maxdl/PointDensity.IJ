@@ -190,15 +190,17 @@ public class PointDensity_ extends PlugInFrame implements OptionsPD, ActionListe
         } else {
             randomPlacedLabel.setText("no");
         }
-        Calibration c = imp.getCalibration();
-        if (c.getUnit().equals("micron")) {
-            pixelwidth = c.pixelWidth * 1000;
-            unit = "nm";
-        } else {
-            pixelwidth = c.pixelWidth;
-            unit = c.getUnit();
+        if (imp != null) {
+            Calibration c = imp.getCalibration();
+            if (c.getUnit().equals("micron")) {
+                pixelwidth = c.pixelWidth * 1000;
+                unit = "nm";
+            } else {
+                pixelwidth = c.pixelWidth;
+                unit = c.getUnit();
+            }
+            scaleLabel.setText(IJ.d2s(pixelwidth, 2) + " " + unit);
         }
-        scaleLabel.setText(IJ.d2s(pixelwidth, 2) + " " + unit);
         commentLabel.setText(profile.comment);
     }
     
@@ -223,7 +225,6 @@ public class PointDensity_ extends PlugInFrame implements OptionsPD, ActionListe
             return;
         }
         imp = WindowManager.getCurrentImage();
-        imp.setOverlay(profile.overlay);
         if (imp != null && imp.getType() != ImagePlus.COLOR_RGB) {
             imp.setProcessor(imp.getTitle(), imp.getProcessor().convertToRGB());
         }
@@ -266,6 +267,7 @@ public class PointDensity_ extends PlugInFrame implements OptionsPD, ActionListe
             if ((p = getPointRoi(imp)) != null) {
                 p.setName("points");
                 p.setStrokeColor(pointCol);
+                imp.setOverlay(profile.overlay);
                 profile.overlay.add(p);
                 profile.dirty = true;
             }
@@ -278,6 +280,7 @@ public class PointDensity_ extends PlugInFrame implements OptionsPD, ActionListe
             if ((p = getPolygonRoi(imp)) != null) {
                 p.setName("profile border");
                 p.setStrokeColor(profileCol);
+                imp.setOverlay(profile.overlay);
                 profile.overlay.add(p);
                 profile.dirty = true;
             }
@@ -289,6 +292,7 @@ public class PointDensity_ extends PlugInFrame implements OptionsPD, ActionListe
             if ((p = getPolygonRoi(imp)) != null) {
                 p.setName("hole");
                 p.setStrokeColor(holeCol);
+                imp.setOverlay(profile.overlay);
                 profile.overlay.add(p);
                 profile.dirty = true;
             }
@@ -309,6 +313,7 @@ public class PointDensity_ extends PlugInFrame implements OptionsPD, ActionListe
             randomRoi.setHideLabels(true);
             randomRoi.setName("random points");
             randomRoi.setStrokeColor(randomCol);
+            imp.setOverlay(profile.overlay);
             profile.overlay.add(randomRoi);
         }
         if (command.equals("Delete profile border")) {
@@ -381,7 +386,9 @@ public class PointDensity_ extends PlugInFrame implements OptionsPD, ActionListe
             new HTMLDialog(VersionPD.title, aboutHtml);
         }
         updateInfoPanel();
-        imp.updateAndDraw();
+        if (imp != null) {
+            imp.updateAndDraw();
+        }
         IJ.showStatus("");
     }
 
